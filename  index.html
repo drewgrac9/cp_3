@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="./css/style.css">
+<script src="http://code.jquery.com/jquery-3.2.1.js" ></script>
+<script type="text/javascript" src="/js/styles.js"></script>
+<script src="../js/script.js"></script>
+<title>Veggie Counter</title>
+</head>
+<body>
+  <body background = "./img/farm.jpg">
+<center><h1>Veggies: <span id="veggie-count">0</span></h1></center>
+
+<center><button id="produce-veggie">Produce Veggie</button></center>
+
+<center><h2>Farmers:</h2></center>
+
+<center><button id="novice-farmer">Hire Novice Farmer</button></center>
+<center><button id="master-farmer">Hire Master Farmer</button></center>
+
+<script>
+var numVeggies = 0;
+var numNoviceFarmers = 0;
+var numMasterFarmer = 0;
+var noviceFarmerCost = 10;
+var masterFarmerCost = 25;
+
+// Increase numVeggies every time produce-veggie is clicked
+$('#produce-veggie').on('click', function () {
+    numVeggies++;
+});
+
+// Same for novice-farmer
+$('#novice-farmer').on('click', function () {
+    numNoviceFarmers++;
+
+    // Deduct cost from total veggies
+    numVeggies -= noviceFarmerCost;
+
+    // Increase cost for the next one, using Math.ceil(round upward to whole number)
+    noviceFarmerCost = Math.ceil(noviceFarmerCost * 1.1);
+});
+
+// Same for master-farmer
+$('#master-farmer').on('click', function () {
+    numMasterFarmer++;
+    numVeggies -= masterFarmerCost;
+    masterFarmerCost = Math.ceil(masterFarmerCost * 1.1);
+});
+
+// Run update every 10ms
+window.setInterval(function () {
+    // Novices add 1 per second
+    numVeggies += (numNoviceFarmers * 1 / 100);
+
+    // Masters add 5 per second
+    numVeggies += (numMasterFarmer * 5 / 100);
+
+    // Update showing how many veggies, using Math.floor(round downward to whole number)
+    $('#veggie-count').text(Math.floor(numVeggies));
+
+    // Update the farmers with their current prices
+    $('#novice-farmer').text('Hire Novice Farmer - ' + noviceFarmerCost);
+    $('#master-farmer').text('Hire Master Farmer - ' + masterFarmerCost);
+
+    // Block the farmer buttons based on our number of veggies
+    $('#novice-farmer').prop('disabled', noviceFarmerCost > numVeggies);
+    $('#master-farmer').prop('disabled', masterFarmerCost > numVeggies);
+}, 10);
+</script>
+</body>
+</html>

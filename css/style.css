@@ -1,0 +1,46 @@
+body{
+  font-size: 34px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: white;
+}
+
+/*Produce Veggie Button*/
+#produce-veggie{
+  font-size: 28px;
+  padding: 12px 28px;
+  border-radius: 50%;
+  background-color: #FD9727; /*Carrot Color*/
+  color: white;
+}
+
+#produce-veggie:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/*Novice Farmer Button*/
+#novice-farmer{
+  font-size: 24px;
+  padding: 12px 28px;
+  border-radius: 50%;
+  background-color: #BB0F22; /*Barn Color*/
+  color: white;
+  margin-bottom: 10px;
+  margin-top: -24px;
+}
+
+#novice-farmer:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/*Master Farmer Button*/
+#master-farmer{
+  font-size: 24px;
+  padding: 12px 28px;
+  border-radius: 50%;
+  background-color: #BB0F22; /*Barn Color*/
+  color: white;
+}
+
+#master-farmer:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
